@@ -12,16 +12,22 @@ def max_sub_num_array_sum(num_array):
 
     max_sum = num_array[0]
     current_max_sum = num_array[0]
+    sub_array = [num_array[0]]
+
     for num in num_array[1:]:
         current_max_sum += num
+        sub_array.append(num)
         if current_max_sum < 0:
             current_max_sum = 0
+            sub_array = []
         if current_max_sum > max_sum:
             max_sum = current_max_sum
 
     if max_sum < 0:
         max_sum = max(num_array)
+        sub_array = [max_sum]
 
+    print (sub_array)
     return max_sum
 
 
